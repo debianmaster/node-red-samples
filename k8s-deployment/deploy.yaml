@@ -38,3 +38,10 @@ spec:
         ports:
         - containerPort: 1880
         resources: {}
+        volumeMounts:
+        - name: nodered-storage
+          mountPath: /data
+      volumes:
+      - name: nodered-storage
+        persistentVolumeClaim:
+          claimName: nodered-pvc
