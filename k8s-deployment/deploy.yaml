@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: nodered
+spec:
+  ports:
+  - port: 1880
+    protocol: TCP
+    targetPort: 1880
+  selector:
+    run: nodered
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nodered
+  name: nodered
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nodered
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nodered
+    spec:
+      containers:
+      - image: nodered/node-red
+        name: nodered
+        ports:
+        - containerPort: 1880
+        resources: {}
