@@ -1,0 +1,121 @@
+[
+  {
+    "type": "pi-gpiod out",
+    "id": "bd22ee5e.3edf3",
+    "z": "7183e380.b31c9c",
+    "name": "servo1",
+    "x": 510,
+    "y": 280,
+    "wires": [],
+    "host": "192.168.1.100",
+    "port": 8888,
+    "pin": "18",
+    "set": "",
+    "level": "0",
+    "out": "ser",
+    "sermin": "1000",
+    "sermax": "3000"
+  },
+  {
+    "id": "89e2a81c.651338",
+    "type": "debug",
+    "z": "7183e380.b31c9c",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "x": 490,
+    "y": 380,
+    "wires": []
+  },
+  {
+    "id": "9b47c080.b24b4",
+    "type": "ui_switch",
+    "z": "7183e380.b31c9c",
+    "name": "",
+    "label": "switch",
+    "tooltip": "",
+    "group": "1b89b6a8.6a2509",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "decouple": "false",
+    "topic": "",
+    "style": "",
+    "onvalue": "true",
+    "onvalueType": "bool",
+    "onicon": "",
+    "oncolor": "",
+    "offvalue": "false",
+    "offvalueType": "bool",
+    "officon": "",
+    "offcolor": "",
+    "x": 100,
+    "y": 380,
+    "wires": [
+      [
+        "92cf2860.e5bd98"
+      ]
+    ]
+  },
+  {
+    "id": "ce843455.981cf8",
+    "type": "random",
+    "z": "7183e380.b31c9c",
+    "name": "",
+    "low": "1",
+    "high": "100",
+    "inte": "true",
+    "property": "payload",
+    "x": 200,
+    "y": 120,
+    "wires": [
+      [
+        "bd22ee5e.3edf3",
+        "89e2a81c.651338"
+      ]
+    ]
+  },
+  {
+    "id": "92cf2860.e5bd98",
+    "type": "trigger",
+    "z": "7183e380.b31c9c",
+    "op1": "",
+    "op2": "0",
+    "op1type": "pay",
+    "op2type": "str",
+    "duration": "-1",
+    "extend": false,
+    "units": "s",
+    "reset": "",
+    "bytopic": "all",
+    "name": "",
+    "x": 140,
+    "y": 240,
+    "wires": [
+      [
+        "ce843455.981cf8"
+      ]
+    ]
+  },
+  {
+    "id": "1b89b6a8.6a2509",
+    "type": "ui_group",
+    "name": "Group 1",
+    "tab": "4a9168c5.9a6bb8",
+    "order": 1,
+    "disp": true,
+    "width": 6
+  },
+  {
+    "id": "4a9168c5.9a6bb8",
+    "type": "ui_tab",
+    "name": "Tab 1",
+    "icon": "dashboard",
+    "order": 1
+  }
+]
